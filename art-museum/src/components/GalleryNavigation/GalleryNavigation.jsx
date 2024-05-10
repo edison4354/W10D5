@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import './GalleryNavigation.css';
 
 const GalleryNavigation = ({galleries}) => {
     // return (
@@ -26,8 +27,18 @@ const GalleryNavigation = ({galleries}) => {
             )
     });
 
-    return <ol>{galleriesList}</ol>
-   
+    return (
+        <>
+            <NavLink 
+                to="/"
+                className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+                }
+            >Homepage
+            </NavLink>
+            <ol>{galleriesList}</ol>
+        </>
+    )
 }
 
 export default GalleryNavigation;
